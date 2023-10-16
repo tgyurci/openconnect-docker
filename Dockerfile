@@ -1,6 +1,7 @@
-FROM ubuntu:latest 
+FROM alpine:latest
 
-RUN apt-get --yes update \
-	&& DEBIAN_FRONTEND=noninteractive apt-get --yes install curl openconnect 
+RUN apk update \
+	&& apk upgrade \
+	&& apk add --no-cache gcompat bash coreutils curl grep gzip openconnect xmlstarlet
 
 CMD ["openconnect"]
